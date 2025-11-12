@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -23,6 +25,7 @@ public class OrderItem {
 
     private int quantity;
 
+    private BigDecimal totalPrice;
     @ManyToOne(fetch= FetchType.LAZY)
     private Order order;
 
