@@ -1,13 +1,14 @@
 package com.roshik.SpringEcom.repo;
 
 import com.roshik.SpringEcom.model.Product;
-import jdk.jfr.Registered;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Registered
+@Repository
 public interface ProductRepo extends JpaRepository<Product,Integer> {
     @Query("SELECT p from Product p WHERE " +
             "LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
